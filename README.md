@@ -1,7 +1,7 @@
 # aceryansoft.sqlflow
 C# light and fluent wrapper to easily use multiple sql databases (Sql server,Oracle,PostgreSql,Mysql,Sybase) with the same code while targeting dotnet standard 2.0 , dotnet framework 4.6.1 and above.
 
-aceryansoft.sqlflow is not a real ORM (Object-Relational-Mapping), it is just a small contribution to help others who are old enough to continue building and querying their own sql schemas.  
+aceryansoft.sqlflow is not a real ORM (Object-Relational-Mapping), it is just a small contribution to help others who are old enough to continue building and querying their own sql schemas. 
 
 
 ## Install 
@@ -14,7 +14,11 @@ Using .net cli
 dotnet add package aceryansoft.sqlflow
 ```
 
-## Hello sql world
+## Features
+
+#### ExecuteReaderAndMap 
+
+Hello sql world
 ``` c#
 using System;
 using System.Collections.Generic;
@@ -78,7 +82,7 @@ namespace aceryansoft.sqlflow.console
 }
 ```
 
-## Features
+
 
 #### ExecuteScalar 
 ``` c#
@@ -137,6 +141,87 @@ postgreExecuter.ExecuteReader(
         {"@dateofbirth", new DateTime( 1980,01,20) } // pass @dateofbirth to the sql query
     });
 Console.WriteLine($"Read sql records with custom logic, we found {peoples.Count} people(s)");
+```
+
+#### store procedure 
+
+``` c#
+var peoples = new List<Person>();
+var mySqlExecuter = SqlFlow.Create("connection String").WithMySqlExecuter();
+
+var spParameters = new Dictionary<string, object>()
+{ 
+    {"@age", 21 },
+    {"@name", "yannick" },
+    {"@birthday", DateTime.Now.AddYears(-21) } 
+};
+
+var newpersonId = mySqlExecuter.ExecuteScalar<decimal>(
+    query: @"sp_insert_persons"
+    , queryParameters: spParameters
+    ,isStoreProcedure:true); // set isStoreProcedure=true to execute query as store procedure         
+Console.WriteLine($"execute store procedure and get new person id = {newpersonId}");
+//store procedure can also be called with ExecuteReader, ExecuteNonQuery, ExecuteReaderAndMap
+```
+
+#### Transaction 
+
+``` c#
+var oracleExecuter = SqlFlow.Create("connection String").WithOracleExecuter();
+oracleExecuter.RunTransaction((sqlexecuter, dbConnexion, dbTransaction) =>
+{
+    var storeprocParams = new Dictionary<string, object>()
+    { 
+        {"@age", 21 },
+        {"@name", "yannick" },
+        {"@birthday", DateTime.Now.AddYears(-21) }
+    };
+
+    var newpersonId = sqlexecuter.ExecuteScalar<decimal>(
+         query: @"sp_insert_persons"
+         , queryParameters: storeprocParams
+         , isStoreProcedure: true);
+
+    var spcontactParams = new Dictionary<string, object>()
+    {
+        {"@idperson", newpersonId },
+        {"@phone", "007" },
+        {"@city", "paris" },
+        {"@postalcode", 78300 } 
+    };
+
+    sqlexecuter.ExecuteNonQuery(
+         query: @"sp_insert_contact"
+         , queryParameters: spcontactParams
+         , isStoreProcedure: true);
+}); 
+```
+
+#### Bulk insert 
+
+only available on Oracle and Sql server  
+
+``` c#
+var oracleExecuter = SqlFlow.Create("connection String").WithOracleExecuter(); // .WithSqlServerExecuter()
+
+var peoples = new List<Person>()
+{
+    new Person(){Name="yan", Age=21},
+    new Person(){Name="pierre", Age=51},
+    new Person(){Name="philippe", Age=43},
+    new Person(){Name="marc", Age=27},
+    new Person(){Name="edouard", Age=62, Contacts = new Contact()
+    {
+      Home = new Address()
+      {
+          City="dakar",
+          PostalCode=27
+      },
+      PhoneNumber = "06"
+  } },
+};
+
+oracleExecuter.BulkInsert<Person>("Persons", peoples, batchSize: 500);
 ```
 
 
