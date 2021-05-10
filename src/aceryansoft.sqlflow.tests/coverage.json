@@ -1,0 +1,1417 @@
+{
+  "aceryansoft.sqlflow.dll": {
+    "D:\\Azure_devops_aceryan\\OpenSource\\aceryansoft.sqlflow\\src\\aceryansoft.sqlflow\\BaseSqlFlow.cs": {
+      "aceryansoft.sqlflow.BaseSqlFlow": {
+        "System.Data.Common.DbCommand aceryansoft.sqlflow.BaseSqlFlow::CreateCommand(System.String,System.Data.Common.DbConnection,System.Collections.Generic.Dictionary`2<System.String,System.Object>,System.Boolean)": {
+          "Lines": {
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "42": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0,
+            "63": 0,
+            "64": 0
+          },
+          "Branches": [
+            {
+              "Line": 38,
+              "Offset": 25,
+              "EndOffset": 27,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 38,
+              "Offset": 25,
+              "EndOffset": 76,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 94,
+              "EndOffset": 96,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 94,
+              "EndOffset": 111,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 44,
+              "Offset": 115,
+              "EndOffset": 117,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 44,
+              "Offset": 115,
+              "EndOffset": 127,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 49,
+              "Offset": 128,
+              "EndOffset": 130,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 49,
+              "Offset": 128,
+              "EndOffset": 138,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 49,
+              "Offset": 141,
+              "EndOffset": 146,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 51,
+              "Offset": 273,
+              "EndOffset": 158,
+              "Path": 1,
+              "Ordinal": 15,
+              "Hits": 0
+            },
+            {
+              "Line": 53,
+              "Offset": 187,
+              "EndOffset": 189,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 0
+            },
+            {
+              "Line": 53,
+              "Offset": 187,
+              "EndOffset": 217,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 59,
+              "Offset": 245,
+              "EndOffset": 247,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 0
+            },
+            {
+              "Line": 59,
+              "Offset": 245,
+              "EndOffset": 253,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 0
+            },
+            {
+              "Line": 51,
+              "Offset": 273,
+              "EndOffset": 275,
+              "Path": 0,
+              "Ordinal": 14,
+              "Hits": 0
+            },
+            {
+              "Line": 49,
+              "Offset": 141,
+              "EndOffset": 293,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void aceryansoft.sqlflow.BaseSqlFlow::ExecuteOnDbCommand(System.Action`1<System.Data.Common.DbCommand>,System.String,System.Collections.Generic.Dictionary`2<System.String,System.Object>,System.Boolean)": {
+          "Lines": {
+            "68": 0,
+            "70": 0,
+            "71": 0,
+            "72": 0,
+            "73": 0,
+            "74": 0,
+            "75": 0,
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "83": 0,
+            "84": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "88": 0,
+            "89": 0,
+            "90": 0,
+            "91": 0,
+            "92": 0,
+            "93": 0,
+            "96": 0
+          },
+          "Branches": [
+            {
+              "Line": 71,
+              "Offset": 13,
+              "EndOffset": 15,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 71,
+              "Offset": 13,
+              "EndOffset": 94,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 92,
+              "Offset": 149,
+              "EndOffset": 151,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 92,
+              "Offset": 149,
+              "EndOffset": 154,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void aceryansoft.sqlflow.BaseSqlFlow::RunTransactionInternal(System.Action`2<System.Data.Common.DbConnection,System.Data.Common.DbTransaction>)": {
+          "Lines": {
+            "99": 0,
+            "100": 0,
+            "101": 0,
+            "102": 0,
+            "103": 0,
+            "104": 0,
+            "105": 0,
+            "107": 0,
+            "108": 0,
+            "109": 0,
+            "110": 0,
+            "111": 0,
+            "112": 0,
+            "113": 0,
+            "115": 0,
+            "116": 0,
+            "117": 0,
+            "118": 0,
+            "120": 0,
+            "121": 0,
+            "122": 0,
+            "123": 0,
+            "124": 0
+          },
+          "Branches": []
+        },
+        "System.Void aceryansoft.sqlflow.BaseSqlFlow::RollbackAndLogTransactionException(System.Exception)": {
+          "Lines": {
+            "127": 0,
+            "128": 0,
+            "129": 0,
+            "130": 0,
+            "131": 0
+          },
+          "Branches": [
+            {
+              "Line": 130,
+              "Offset": 27,
+              "EndOffset": 29,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 130,
+              "Offset": 27,
+              "EndOffset": 32,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void aceryansoft.sqlflow.BaseSqlFlow::ResetTransaction()": {
+          "Lines": {
+            "134": 0,
+            "135": 0,
+            "136": 0,
+            "137": 0
+          },
+          "Branches": []
+        },
+        "aceryansoft.sqlflow.BaseSqlFlow/MapReaderToObject`1<T> aceryansoft.sqlflow.BaseSqlFlow::GetResultMapper(System.Data.Common.DbDataReader,System.Collections.Generic.Dictionary`2<System.String,System.String>)": {
+          "Lines": {
+            "140": 0,
+            "141": 0,
+            "142": 0,
+            "143": 0,
+            "145": 0,
+            "146": 0,
+            "147": 0,
+            "148": 0,
+            "149": 0,
+            "150": 0,
+            "151": 0,
+            "152": 0,
+            "153": 0,
+            "154": 0,
+            "155": 0,
+            "156": 0,
+            "157": 0,
+            "158": 0,
+            "159": 0,
+            "160": 0,
+            "163": 0,
+            "164": 0,
+            "165": 0,
+            "166": 0,
+            "167": 0,
+            "168": 0,
+            "169": 0,
+            "170": 0,
+            "171": 0,
+            "172": 0,
+            "173": 0,
+            "174": 0,
+            "175": 0,
+            "176": 0,
+            "177": 0,
+            "178": 0,
+            "179": 0,
+            "180": 0,
+            "181": 0,
+            "182": 0,
+            "183": 0,
+            "184": 0,
+            "185": 0,
+            "186": 0,
+            "187": 0,
+            "188": 0,
+            "190": 0,
+            "191": 0,
+            "192": 0,
+            "195": 0,
+            "196": 0
+          },
+          "Branches": [
+            {
+              "Line": 141,
+              "Offset": 3,
+              "EndOffset": 5,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 141,
+              "Offset": 3,
+              "EndOffset": 11,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 142,
+              "Offset": 20,
+              "EndOffset": 22,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 142,
+              "Offset": 20,
+              "EndOffset": 45,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 142,
+              "Offset": 51,
+              "EndOffset": 53,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 142,
+              "Offset": 51,
+              "EndOffset": 76,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 143,
+              "Offset": 89,
+              "EndOffset": 91,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 143,
+              "Offset": 89,
+              "EndOffset": 114,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 146,
+              "Offset": 467,
+              "EndOffset": 143,
+              "Path": 1,
+              "Ordinal": 19,
+              "Hits": 0
+            },
+            {
+              "Line": 151,
+              "Offset": 215,
+              "EndOffset": 217,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 151,
+              "Offset": 215,
+              "EndOffset": 247,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 163,
+              "Offset": 263,
+              "EndOffset": 268,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 0
+            },
+            {
+              "Line": 167,
+              "Offset": 352,
+              "EndOffset": 354,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 0
+            },
+            {
+              "Line": 167,
+              "Offset": 352,
+              "EndOffset": 383,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 0
+            },
+            {
+              "Line": 177,
+              "Offset": 396,
+              "EndOffset": 398,
+              "Path": 0,
+              "Ordinal": 14,
+              "Hits": 0
+            },
+            {
+              "Line": 177,
+              "Offset": 396,
+              "EndOffset": 414,
+              "Path": 1,
+              "Ordinal": 15,
+              "Hits": 0
+            },
+            {
+              "Line": 177,
+              "Offset": 419,
+              "EndOffset": 421,
+              "Path": 0,
+              "Ordinal": 16,
+              "Hits": 0
+            },
+            {
+              "Line": 177,
+              "Offset": 419,
+              "EndOffset": 448,
+              "Path": 1,
+              "Ordinal": 17,
+              "Hits": 0
+            },
+            {
+              "Line": 163,
+              "Offset": 263,
+              "EndOffset": 449,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 146,
+              "Offset": 467,
+              "EndOffset": 472,
+              "Path": 0,
+              "Ordinal": 18,
+              "Hits": 0
+            },
+            {
+              "Line": 190,
+              "Offset": 487,
+              "EndOffset": 489,
+              "Path": 0,
+              "Ordinal": 20,
+              "Hits": 0
+            },
+            {
+              "Line": 190,
+              "Offset": 487,
+              "EndOffset": 501,
+              "Path": 1,
+              "Ordinal": 21,
+              "Hits": 0
+            },
+            {
+              "Line": 155,
+              "Offset": 18,
+              "EndOffset": 20,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 155,
+              "Offset": 18,
+              "EndOffset": 68,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 171,
+              "Offset": 23,
+              "EndOffset": 25,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 171,
+              "Offset": 23,
+              "EndOffset": 78,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 181,
+              "Offset": 23,
+              "EndOffset": 25,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 181,
+              "Offset": 23,
+              "EndOffset": 64,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void aceryansoft.sqlflow.BaseSqlFlow::.ctor(System.String,System.Action`3<System.Exception,System.String,System.String>)": {
+          "Lines": {
+            "22": 0,
+            "23": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "29": 0,
+            "30": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\Azure_devops_aceryan\\OpenSource\\aceryansoft.sqlflow\\src\\aceryansoft.sqlflow\\DbProvider\\MySqlDbProvider.cs": {
+      "aceryansoft.sqlflow.MySqlDbProvider": {
+        "System.Void aceryansoft.sqlflow.MySqlDbProvider::BulkInsert(System.Data.Common.DbConnection,System.String,System.Data.DataTable,System.Int32)": {
+          "Lines": {
+            "12": 0,
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.Data.Common.DbConnection aceryansoft.sqlflow.MySqlDbProvider::CreateDbConnexion(System.String)": {
+          "Lines": {
+            "17": 0,
+            "18": 0,
+            "19": 0
+          },
+          "Branches": []
+        },
+        "System.Data.Common.DbParameter aceryansoft.sqlflow.MySqlDbProvider::CreateDbParameter(System.String,System.Object)": {
+          "Lines": {
+            "22": 0,
+            "23": 0,
+            "24": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\Azure_devops_aceryan\\OpenSource\\aceryansoft.sqlflow\\src\\aceryansoft.sqlflow\\DbProvider\\OracleDbProvider.cs": {
+      "aceryansoft.sqlflow.OracleDbProvider": {
+        "System.Void aceryansoft.sqlflow.OracleDbProvider::BulkInsert(System.Data.Common.DbConnection,System.String,System.Data.DataTable,System.Int32)": {
+          "Lines": {
+            "10": 0,
+            "11": 0,
+            "12": 0,
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0
+          },
+          "Branches": []
+        },
+        "System.Data.Common.DbConnection aceryansoft.sqlflow.OracleDbProvider::CreateDbConnexion(System.String)": {
+          "Lines": {
+            "20": 0,
+            "21": 0,
+            "22": 0
+          },
+          "Branches": []
+        },
+        "System.Data.Common.DbParameter aceryansoft.sqlflow.OracleDbProvider::CreateDbParameter(System.String,System.Object)": {
+          "Lines": {
+            "25": 0,
+            "26": 0,
+            "27": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\Azure_devops_aceryan\\OpenSource\\aceryansoft.sqlflow\\src\\aceryansoft.sqlflow\\DbProvider\\PostGreSqlDbProvider.cs": {
+      "aceryansoft.sqlflow.PostGreSqlDbProvider": {
+        "System.Void aceryansoft.sqlflow.PostGreSqlDbProvider::BulkInsert(System.Data.Common.DbConnection,System.String,System.Data.DataTable,System.Int32)": {
+          "Lines": {
+            "12": 0,
+            "13": 0
+          },
+          "Branches": []
+        },
+        "System.Data.Common.DbConnection aceryansoft.sqlflow.PostGreSqlDbProvider::CreateDbConnexion(System.String)": {
+          "Lines": {
+            "17": 0,
+            "18": 0,
+            "19": 0
+          },
+          "Branches": []
+        },
+        "System.Data.Common.DbParameter aceryansoft.sqlflow.PostGreSqlDbProvider::CreateDbParameter(System.String,System.Object)": {
+          "Lines": {
+            "22": 0,
+            "23": 0,
+            "24": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\Azure_devops_aceryan\\OpenSource\\aceryansoft.sqlflow\\src\\aceryansoft.sqlflow\\DbProvider\\SqlServerDbProvider.cs": {
+      "aceryansoft.sqlflow.SqlServerDbProvider": {
+        "System.Void aceryansoft.sqlflow.SqlServerDbProvider::BulkInsert(System.Data.Common.DbConnection,System.String,System.Data.DataTable,System.Int32)": {
+          "Lines": {
+            "10": 0,
+            "11": 0,
+            "12": 0,
+            "13": 0,
+            "14": 0,
+            "15": 0,
+            "16": 0,
+            "17": 0
+          },
+          "Branches": []
+        },
+        "System.Data.Common.DbConnection aceryansoft.sqlflow.SqlServerDbProvider::CreateDbConnexion(System.String)": {
+          "Lines": {
+            "20": 0,
+            "21": 0,
+            "22": 0
+          },
+          "Branches": []
+        },
+        "System.Data.Common.DbParameter aceryansoft.sqlflow.SqlServerDbProvider::CreateDbParameter(System.String,System.Object)": {
+          "Lines": {
+            "25": 0,
+            "26": 0,
+            "27": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\Azure_devops_aceryan\\OpenSource\\aceryansoft.sqlflow\\src\\aceryansoft.sqlflow\\DbProvider\\SybaseDbProvider.cs": {
+      "aceryansoft.sqlflow.SybaseDbProvider": {
+        "System.Void aceryansoft.sqlflow.SybaseDbProvider::BulkInsert(System.Data.Common.DbConnection,System.String,System.Data.DataTable,System.Int32)": {
+          "Lines": {
+            "10": 0,
+            "11": 0
+          },
+          "Branches": []
+        },
+        "System.Data.Common.DbConnection aceryansoft.sqlflow.SybaseDbProvider::CreateDbConnexion(System.String)": {
+          "Lines": {
+            "15": 0,
+            "16": 0,
+            "17": 0
+          },
+          "Branches": []
+        },
+        "System.Data.Common.DbParameter aceryansoft.sqlflow.SybaseDbProvider::CreateDbParameter(System.String,System.Object)": {
+          "Lines": {
+            "20": 0,
+            "21": 0,
+            "22": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\Azure_devops_aceryan\\OpenSource\\aceryansoft.sqlflow\\src\\aceryansoft.sqlflow\\SqlFlow.cs": {
+      "aceryansoft.sqlflow.SqlFlow": {
+        "aceryansoft.sqlflow.ISqlFlow aceryansoft.sqlflow.SqlFlow::Create(System.String,System.Action`3<System.Exception,System.String,System.String>)": {
+          "Lines": {
+            "19": 0,
+            "20": 0,
+            "21": 0
+          },
+          "Branches": []
+        },
+        "aceryansoft.sqlflow.ISqlServerExecuter aceryansoft.sqlflow.SqlFlow::WithSqlServerExecuter()": {
+          "Lines": {
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0
+          },
+          "Branches": []
+        },
+        "aceryansoft.sqlflow.IOracleExecuter aceryansoft.sqlflow.SqlFlow::WithOracleExecuter()": {
+          "Lines": {
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0
+          },
+          "Branches": []
+        },
+        "aceryansoft.sqlflow.ISqlTransactExecuter aceryansoft.sqlflow.SqlFlow::WithSybaseExecuter()": {
+          "Lines": {
+            "35": 0,
+            "36": 0,
+            "37": 0,
+            "38": 0
+          },
+          "Branches": []
+        },
+        "aceryansoft.sqlflow.ISqlTransactExecuter aceryansoft.sqlflow.SqlFlow::WithPostGreSqlExecuter()": {
+          "Lines": {
+            "41": 0,
+            "42": 0,
+            "43": 0,
+            "44": 0
+          },
+          "Branches": []
+        },
+        "aceryansoft.sqlflow.ISqlTransactExecuter aceryansoft.sqlflow.SqlFlow::WithMySqlExecuter()": {
+          "Lines": {
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0
+          },
+          "Branches": []
+        },
+        "System.Void aceryansoft.sqlflow.SqlFlow::BulkInsert(System.String,System.Collections.Generic.List`1<T>,System.Collections.Generic.Dictionary`2<System.String,System.String>,System.Int32)": {
+          "Lines": {
+            "53": 0,
+            "54": 0,
+            "55": 0,
+            "56": 0,
+            "57": 0,
+            "58": 0,
+            "59": 0,
+            "60": 0
+          },
+          "Branches": []
+        },
+        "System.Void aceryansoft.sqlflow.SqlFlow::ExecuteNonQuery(System.String,System.Collections.Generic.Dictionary`2<System.String,System.Object>,System.Boolean)": {
+          "Lines": {
+            "66": 0,
+            "67": 0,
+            "68": 0,
+            "69": 0,
+            "70": 0,
+            "71": 0,
+            "72": 0
+          },
+          "Branches": []
+        },
+        "System.Void aceryansoft.sqlflow.SqlFlow::ExecuteReader(System.String,System.Action`1<System.Data.Common.DbDataReader>,System.Collections.Generic.Dictionary`2<System.String,System.Object>,System.Boolean)": {
+          "Lines": {
+            "75": 0,
+            "76": 0,
+            "77": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0,
+            "83": 0,
+            "84": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0
+          },
+          "Branches": [
+            {
+              "Line": 81,
+              "Offset": 34,
+              "EndOffset": 11,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 81,
+              "Offset": 34,
+              "EndOffset": 36,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Collections.Generic.List`1<T> aceryansoft.sqlflow.SqlFlow::ExecuteReaderAndMap(System.String,System.Collections.Generic.Dictionary`2<System.String,System.String>,System.Collections.Generic.Dictionary`2<System.String,System.Object>,System.Boolean)": {
+          "Lines": {
+            "90": 0,
+            "91": 0,
+            "92": 0,
+            "93": 0,
+            "94": 0,
+            "95": 0,
+            "96": 0,
+            "97": 0,
+            "98": 0,
+            "99": 0,
+            "100": 0,
+            "101": 0,
+            "102": 0,
+            "103": 0,
+            "104": 0,
+            "105": 0,
+            "107": 0,
+            "108": 0
+          },
+          "Branches": [
+            {
+              "Line": 98,
+              "Offset": 83,
+              "EndOffset": 30,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 98,
+              "Offset": 83,
+              "EndOffset": 85,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            }
+          ]
+        },
+        "T aceryansoft.sqlflow.SqlFlow::ExecuteScalar(System.String,System.Collections.Generic.Dictionary`2<System.String,System.Object>,System.Boolean)": {
+          "Lines": {
+            "111": 0,
+            "112": 0,
+            "113": 0,
+            "114": 0,
+            "115": 0,
+            "116": 0,
+            "117": 0,
+            "118": 0,
+            "119": 0
+          },
+          "Branches": []
+        },
+        "System.Void aceryansoft.sqlflow.SqlFlow::RunTransaction(System.Action`3<aceryansoft.sqlflow.ISqlExecuter,System.Data.Common.DbConnection,System.Data.Common.DbTransaction>)": {
+          "Lines": {
+            "124": 0,
+            "125": 0,
+            "126": 0
+          },
+          "Branches": []
+        },
+        "System.Void aceryansoft.sqlflow.SqlFlow::.ctor(System.String,System.Action`3<System.Exception,System.String,System.String>)": {
+          "Lines": {
+            "14": 0,
+            "15": 0,
+            "16": 0
+          },
+          "Branches": []
+        }
+      }
+    },
+    "D:\\Azure_devops_aceryan\\OpenSource\\aceryansoft.sqlflow\\src\\aceryansoft.sqlflow\\Helpers\\DataRecordhelper.cs": {
+      "aceryansoft.sqlflow.Helpers.DataRecordhelper": {
+        "T aceryansoft.sqlflow.Helpers.DataRecordhelper::GetValue(System.Data.IDataRecord,System.String,T)": {
+          "Lines": {
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "25": 0,
+            "29": 0,
+            "30": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "36": 0
+          },
+          "Branches": [
+            {
+              "Line": 23,
+              "Offset": 16,
+              "EndOffset": 18,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 23,
+              "Offset": 16,
+              "EndOffset": 28,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 23,
+              "Offset": 31,
+              "EndOffset": 33,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 23,
+              "Offset": 31,
+              "EndOffset": 38,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "D:\\Azure_devops_aceryan\\OpenSource\\aceryansoft.sqlflow\\src\\aceryansoft.sqlflow\\Helpers\\DbReaderhelper.cs": {
+      "aceryansoft.sqlflow.Helpers.DbReaderhelper": {
+        "T aceryansoft.sqlflow.Helpers.DbReaderhelper::GetValue(System.Data.Common.DbDataReader,System.String,T)": {
+          "Lines": {
+            "20": 0,
+            "21": 0,
+            "22": 0,
+            "23": 0,
+            "24": 0,
+            "28": 0,
+            "29": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "36": 0
+          },
+          "Branches": [
+            {
+              "Line": 22,
+              "Offset": 16,
+              "EndOffset": 18,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 22,
+              "Offset": 16,
+              "EndOffset": 28,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 22,
+              "Offset": 31,
+              "EndOffset": 33,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 22,
+              "Offset": 31,
+              "EndOffset": 38,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    },
+    "D:\\Azure_devops_aceryan\\OpenSource\\aceryansoft.sqlflow\\src\\aceryansoft.sqlflow\\Helpers\\ReflectionHelper.cs": {
+      "aceryansoft.sqlflow.Helpers.ReflectionHelper": {
+        "System.Data.DataTable aceryansoft.sqlflow.Helpers.ReflectionHelper::ConvertListToDataTable(System.Collections.Generic.List`1<T>,System.Collections.Generic.Dictionary`2<System.String,System.String>)": {
+          "Lines": {
+            "24": 0,
+            "25": 0,
+            "26": 0,
+            "27": 0,
+            "28": 0,
+            "30": 0,
+            "31": 0,
+            "32": 0,
+            "33": 0,
+            "34": 0,
+            "35": 0,
+            "36": 0,
+            "38": 0,
+            "39": 0,
+            "40": 0,
+            "41": 0,
+            "43": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "47": 0,
+            "48": 0,
+            "49": 0,
+            "50": 0,
+            "51": 0,
+            "52": 0,
+            "53": 0,
+            "54": 0
+          },
+          "Branches": [
+            {
+              "Line": 25,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 27,
+              "Offset": 31,
+              "EndOffset": 33,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 27,
+              "Offset": 31,
+              "EndOffset": 56,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 25,
+              "Offset": 7,
+              "EndOffset": 74,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 32,
+              "Offset": 217,
+              "EndOffset": 110,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 34,
+              "Offset": 144,
+              "EndOffset": 146,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 34,
+              "Offset": 144,
+              "EndOffset": 149,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 185,
+              "EndOffset": 187,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 39,
+              "Offset": 185,
+              "EndOffset": 195,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 32,
+              "Offset": 217,
+              "EndOffset": 219,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 43,
+              "Offset": 392,
+              "EndOffset": 256,
+              "Path": 1,
+              "Ordinal": 15,
+              "Hits": 0
+            },
+            {
+              "Line": 46,
+              "Offset": 351,
+              "EndOffset": 285,
+              "Path": 1,
+              "Ordinal": 13,
+              "Hits": 0
+            },
+            {
+              "Line": 49,
+              "Offset": 329,
+              "EndOffset": 331,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 0
+            },
+            {
+              "Line": 49,
+              "Offset": 329,
+              "EndOffset": 337,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 46,
+              "Offset": 351,
+              "EndOffset": 353,
+              "Path": 0,
+              "Ordinal": 12,
+              "Hits": 0
+            },
+            {
+              "Line": 43,
+              "Offset": 392,
+              "EndOffset": 397,
+              "Path": 0,
+              "Ordinal": 14,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Collections.Generic.Dictionary`2<System.String,System.String> aceryansoft.sqlflow.Helpers.ReflectionHelper::GetDefaultColumnsMapping(System.Collections.Generic.List`1<System.String>)": {
+          "Lines": {
+            "57": 0,
+            "58": 0,
+            "60": 0,
+            "61": 0,
+            "62": 0
+          },
+          "Branches": [
+            {
+              "Line": 58,
+              "Offset": 15,
+              "EndOffset": 17,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 58,
+              "Offset": 15,
+              "EndOffset": 40,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 60,
+              "Offset": 76,
+              "EndOffset": 78,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 60,
+              "Offset": 76,
+              "EndOffset": 101,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 60,
+              "Offset": 107,
+              "EndOffset": 109,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 60,
+              "Offset": 107,
+              "EndOffset": 132,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 61,
+              "Offset": 162,
+              "EndOffset": 164,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 61,
+              "Offset": 162,
+              "EndOffset": 187,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 61,
+              "Offset": 193,
+              "EndOffset": 195,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 61,
+              "Offset": 193,
+              "EndOffset": 218,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            }
+          ]
+        },
+        "System.Void aceryansoft.sqlflow.Helpers.ReflectionHelper::SetInnerPropertyValue(System.Object,System.Object,System.String,System.Char)": {
+          "Lines": {
+            "72": 0,
+            "73": 0,
+            "74": 0,
+            "75": 0,
+            "78": 0,
+            "79": 0,
+            "80": 0,
+            "81": 0,
+            "82": 0,
+            "83": 0,
+            "84": 0,
+            "85": 0,
+            "86": 0,
+            "87": 0,
+            "90": 0,
+            "91": 0,
+            "92": 0,
+            "93": 0,
+            "96": 0,
+            "97": 0,
+            "98": 0,
+            "99": 0,
+            "100": 0,
+            "101": 0,
+            "102": 0,
+            "103": 0,
+            "104": 0,
+            "105": 0
+          },
+          "Branches": [
+            {
+              "Line": 73,
+              "Offset": 13,
+              "EndOffset": 15,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 0
+            },
+            {
+              "Line": 73,
+              "Offset": 13,
+              "EndOffset": 27,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 0
+            },
+            {
+              "Line": 73,
+              "Offset": 32,
+              "EndOffset": 34,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 0
+            },
+            {
+              "Line": 73,
+              "Offset": 32,
+              "EndOffset": 63,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 0
+            },
+            {
+              "Line": 82,
+              "Offset": 346,
+              "EndOffset": 139,
+              "Path": 1,
+              "Ordinal": 11,
+              "Hits": 0
+            },
+            {
+              "Line": 85,
+              "Offset": 171,
+              "EndOffset": 173,
+              "Path": 0,
+              "Ordinal": 4,
+              "Hits": 0
+            },
+            {
+              "Line": 85,
+              "Offset": 171,
+              "EndOffset": 179,
+              "Path": 1,
+              "Ordinal": 5,
+              "Hits": 0
+            },
+            {
+              "Line": 90,
+              "Offset": 208,
+              "EndOffset": 210,
+              "Path": 0,
+              "Ordinal": 6,
+              "Hits": 0
+            },
+            {
+              "Line": 90,
+              "Offset": 208,
+              "EndOffset": 233,
+              "Path": 1,
+              "Ordinal": 7,
+              "Hits": 0
+            },
+            {
+              "Line": 98,
+              "Offset": 268,
+              "EndOffset": 270,
+              "Path": 0,
+              "Ordinal": 8,
+              "Hits": 0
+            },
+            {
+              "Line": 98,
+              "Offset": 268,
+              "EndOffset": 295,
+              "Path": 1,
+              "Ordinal": 9,
+              "Hits": 0
+            },
+            {
+              "Line": 82,
+              "Offset": 346,
+              "EndOffset": 351,
+              "Path": 0,
+              "Ordinal": 10,
+              "Hits": 0
+            }
+          ]
+        }
+      }
+    }
+  }
+}

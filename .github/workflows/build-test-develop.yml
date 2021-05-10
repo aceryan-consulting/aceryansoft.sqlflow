@@ -24,5 +24,5 @@ jobs:
       run: dotnet build --no-restore /p:CoreOnly=True
       working-directory: src
     - name: Test
-      run: dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoreOnly=True
+      run: dotnet test --no-build --verbosity normal /p:CollectCoverage=true /p:CoreOnly=True  --filter "(FullyQualifiedName~Tests&TestCategory=unitTest)"
       working-directory: src

@@ -33,6 +33,7 @@ namespace aceryansoft.sqlflow.tests
         public Address Location { get; set; }
     }
 
+    [TestCategory("unitTest")]
     [TestClass]
     public class ReflectionHelperUnitTests
     {
