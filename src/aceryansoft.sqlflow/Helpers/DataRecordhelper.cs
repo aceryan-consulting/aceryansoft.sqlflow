@@ -29,7 +29,7 @@ namespace aceryansoft.sqlflow.Helpers
             {
                 return (T)Convert.ChangeType(result, typeof(T));
             }
-            catch (Exception e)
+            catch 
             {
                 return defaultValue;
             }

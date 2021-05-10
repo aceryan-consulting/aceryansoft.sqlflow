@@ -5,8 +5,8 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>aceryansoft.sqlflow</PackageId>
     <Description>
-      C# light and fluent wrapper to easily use multiple sql databases (Sql server,Oracle,PostgreSql,Mysql,Sybase). 
-      It is targeting dotnet standard 2.0 , dotnet framework 4.6.1 and above. 
+      C# light and fluent wrapper to easily use multiple sql databases (Sql server,Oracle,PostgreSql,Mysql,Sybase)
+      with the same code while targeting dotnet standard 2.0 , dotnet framework 4.6.1 and above.
     </Description>
     <Version>1.0.0.0</Version>
     <Authors>Yannick Cyrille Nganko</Authors>

@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29806.167
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aceryansoft.sqlflow", "aceryansoft.sqlflow\aceryansoft.sqlflow.csproj", "{4B4D6A83-4EAB-41FE-9A9E-EDFEAD8097AF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "aceryansoft.sqlflow", "aceryansoft.sqlflow\aceryansoft.sqlflow.csproj", "{4B4D6A83-4EAB-41FE-9A9E-EDFEAD8097AF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aceryansoft.sqlflow.tests", "aceryansoft.sqlflow.tests\aceryansoft.sqlflow.tests.csproj", "{4BD22D11-C609-40D6-A36E-6F0D4FD60472}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "aceryansoft.sqlflow.tests", "aceryansoft.sqlflow.tests\aceryansoft.sqlflow.tests.csproj", "{4BD22D11-C609-40D6-A36E-6F0D4FD60472}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "aceryansoft.sqlflow.console", "aceryansoft.sqlflow.console\aceryansoft.sqlflow.console.csproj", "{00793E16-7788-42BE-BB4E-BA85F9CD1EC6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{4BD22D11-C609-40D6-A36E-6F0D4FD60472}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BD22D11-C609-40D6-A36E-6F0D4FD60472}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BD22D11-C609-40D6-A36E-6F0D4FD60472}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00793E16-7788-42BE-BB4E-BA85F9CD1EC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00793E16-7788-42BE-BB4E-BA85F9CD1EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00793E16-7788-42BE-BB4E-BA85F9CD1EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00793E16-7788-42BE-BB4E-BA85F9CD1EC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
