@@ -1,0 +1,46 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <PackageId>aceryansoft.sqlflow</PackageId>
+    <Description>
+      C# light and fluent wrapper to easily use multiple sql databases (Sql server,Oracle,PostgreSql,Mysql,Sybase). 
+      It is targeting dotnet standard 2.0 , dotnet framework 4.6.1 and above. 
+    </Description>
+    <Version>1.0.0.0</Version>
+    <Authors>Yannick Cyrille Nganko</Authors>
+    <owners>Aceryan consulting</owners>
+    <Company>Aceryan consulting</Company>
+    <RepositoryUrl>https://github.com/aceryan-consulting/aceryansoft.sqlflow</RepositoryUrl>
+    <PackageTags>aceryansoft.sqlflow,aceryansoft,sqlflow,sql</PackageTags>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <Copyright>aceryan consulting Copyright 2021</Copyright>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+    <PackageReleaseNotes>
+      Initial package release
+
+    </PackageReleaseNotes>
+    <PackageProjectUrl>https://github.com/aceryan-consulting/aceryansoft.sqlflow</PackageProjectUrl>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+
+  </PropertyGroup>
+ 
+  <ItemGroup>
+    <None Include="..\..\LICENSE.md" Pack="true" PackagePath="LICENSE.md" />
+
+    <AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+      <_Parameter1>aceryansoft.sqlflow.tests</_Parameter1>
+    </AssemblyAttribute> 
+  </ItemGroup>
+ 
+  <ItemGroup>
+    <PackageReference Include="AdoNetCore.AseClient" Version="0.19.2" />
+    <PackageReference Include="MySql.Data" Version="8.0.24" />
+    <PackageReference Include="Npgsql" Version="5.0.4" />
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="2.19.110" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+  </ItemGroup>
+  
+</Project>
