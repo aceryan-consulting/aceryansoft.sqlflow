@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using aceryansoft.sqlflow.Helpers;
 using System.Linq;
+using aceryansoft.sqlflow.Model;
 
 namespace aceryansoft.sqlflow.tests
 {
@@ -205,5 +206,119 @@ select 'pierre' as name, 'poissy' as city, 78300 as postalcode
             };
             return sqlExecuter.ExecuteScalar<decimal>("sp_insert_customers", newCustomerParameters, true);
         }
+
+        [TestMethod]
+        public void ShouldExecuteNonQueryWithOutParameterAndRetrieveParameterValue()
+        {
+            var sqlserverExecuter = SqlFlow.Create(_localConnectionString).WithSqlServerExecuter();
+            int newCustomerId = 0;
+
+            sqlserverExecuter.ExecuteNonQuery(
+                @"Insert into Customers( name , amount , notation , traderid , creationdate )
+                             values(@name, @amount, @notation, @traderid, @creationdate);
+                  select @customerId=@@IDENTITY"
+                , new Dictionary<string, object>() {
+                    {"@name", "corp model x" },
+                    {"@amount", 1503 },
+                    {"@notation", 18.2 },
+                    {"@traderid", 169 },
+                    {"@creationdate", DateTime.Now },
+                    {"@customerId", new QueryParameter<int>() // generic required to set the db parameter size and avoid System.InvalidOperationException: String[xxx]: the Size property has an invalid size of 0. 
+                        { 
+                            IsOuputParameter = true,
+                            GetOutputParameterValue = (val)=>{newCustomerId = (int) val; }
+                        }
+                    }
+
+                });
+            Check.That(newCustomerId).IsNotEqualTo(0);
+        }
+
+
+        [TestMethod]
+        public void ShouldStoreProcedureWithOutParameterAndRetrieveParameterValue()
+        {
+            var sqlserverExecuter = SqlFlow.Create(_localConnectionString).WithSqlServerExecuter();
+            int newCustomerId = 0;
+
+            sqlserverExecuter.ExecuteNonQuery(
+                "sp_insert_customers_with_output_parameter"
+                , new Dictionary<string, object>() {
+                    {"@name", "corp model y" },
+                    {"@amount", 1503 },
+                    {"@notation", 18.2 },
+                    {"@traderid", 169 },
+                    {"@creationdate", DateTime.Now },
+                    {"@customerId", new QueryParameter<int>()  
+                        {
+                            IsOuputParameter = true,
+                            GetOutputParameterValue = (val)=>{newCustomerId = (int) val; }
+                        }
+                    }
+                },isStoreProcedure:true);
+            Check.That(newCustomerId).IsNotEqualTo(0);
+        }
+
+         
+
+        public class SampleUser
+        {
+            public string Name { get; set; }
+            public int Age { get; set; }
+            public decimal Height { get; set; }
+        }
+
+        public class SampleCity
+        {
+            public string Name { get; set; }
+            public int PostalCode { get; set; } 
+        }
+
+        [TestMethod]
+        public void ShouldExecuteMultipleResultsSetQueriesAndReadResults()
+        {
+            var sqlserverExecuter = SqlFlow.Create(_localConnectionString).WithSqlServerExecuter();
+            var Users = new List<SampleUser>();
+            var Cities = new List<SampleCity>();
+            var multiResultSetQuery = @"
+                select 'yannick' as username, 24 as age, 1.8 as height
+                union 
+                select 'pierre' as username, 34 as age, 1.85 as height
+                union 
+                select 'anne' as username, 7 as age, 2 as height; 
+
+                select 'paris' as city, 75001 as postalcode 
+                union
+                select 'nanterre' as city, 92000 as postalcode";
+
+            sqlserverExecuter.ExecuteReaderOnMultipleResultsSet(
+                multiResultSetQuery,(reader, index)=>
+                {
+                    if (index == 0)
+                    {
+                        Users.Add(new SampleUser()
+                        {
+                            Name = reader.GetValue<string>("username"),
+                            Age = reader.GetValue<int>("age"),
+                            Height = reader.GetValue<decimal>("height"),
+                        });
+                    }
+                    else if (index == 1)
+                    {
+                        Cities.Add(new SampleCity()
+                        {
+                            Name = reader.GetValue<string>("city"),
+                            PostalCode = reader.GetValue<int>("postalcode") 
+                        });
+                    }
+                });
+            Check.That(Users.Count).IsEqualTo(3);
+            Check.That(Cities.Count).IsEqualTo(2);
+
+            var yan = Users.FirstOrDefault(x => x.Name == "yannick");
+            Check.That(yan).IsNotNull();
+            Check.That(yan.Height).IsEqualTo(1.8);
+        }
+
     }
 }

@@ -25,6 +25,20 @@ select @@IDENTITY 'customerId'
 go 
 
 
+
+CREATE PROCEDURE sp_insert_customers_with_output_parameter(@name varchar(255), @amount numeric(12,6), @notation float, @traderid int, @creationdate datetime , @customerId int output)
+as
+begin 
+
+Insert into Customers( name , amount , notation , traderid , creationdate )
+		values ( @name, @amount, @notation, @traderid , @creationdate );
+		
+select @customerId=@@IDENTITY 
+end 
+
+go 
+
+
 -- exec sp_insert_Customers 'yan', 150.2, 10,13974,'20210427'
 
 -- select * from Customers 

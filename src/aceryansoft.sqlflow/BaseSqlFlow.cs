@@ -1,4 +1,5 @@
 ﻿using aceryansoft.sqlflow.Helpers;
+using aceryansoft.sqlflow.Model;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -50,13 +51,14 @@ namespace aceryansoft.sqlflow
             {
                 foreach (var parameter in queryParameters)
                 {
-                    if (parameter.Value is DbParameter)
+                    if (parameter.Value is IQueryParameter queryParam)
                     {
-                        command.Parameters.Add((DbParameter)parameter.Value);
+                        var queryDbParam = _dataBaseProvider.CreateDbParameter(parameter.Key, queryParam.Value ?? queryParam.GetDefaultValue(), queryParam.IsOuputParameter);
+                        command.Parameters.Add(queryDbParam);
                     }
                     else
                     {
-                        command.Parameters.Add(_dataBaseProvider.CreateDbParameter(parameter.Key, parameter.Value ?? DBNull.Value));
+                        command.Parameters.Add(_dataBaseProvider.CreateDbParameter(parameter.Key, parameter.Value ??  DBNull.Value));
                     }
                 }
             }
@@ -76,6 +78,7 @@ namespace aceryansoft.sqlflow
                         using (var command = CreateCommand(query, connexion, queryParameters, isStoreProcedure))
                         {
                             actionOnDbCommand(command);
+                            GetOutputParametersValuesIfRequired(command, queryParameters);
                         }
                     }
                 }
@@ -84,6 +87,7 @@ namespace aceryansoft.sqlflow
                     using (var command = CreateCommand(query, _currentDbConnexion, queryParameters, isStoreProcedure))
                     {
                         actionOnDbCommand(command);
+                        GetOutputParametersValuesIfRequired(command, queryParameters);
                     }
                 }
             }
@@ -91,10 +95,25 @@ namespace aceryansoft.sqlflow
             {
                 _onError?.Invoke(ex, _lastQuery, _lastParameters);
                 throw; //rethrow the exception to be caught by the caller
-            }
-           
+            }           
         }
 
+        private void GetOutputParametersValuesIfRequired(DbCommand command, Dictionary<string, object> queryParameters)
+        {
+            if (queryParameters == null || !queryParameters.Any())
+            {
+                return;
+            }
+
+            foreach (var parameter in queryParameters)
+            {
+                if (parameter.Value is IQueryParameter queryParam)
+                {
+                    queryParam.GetOutputParameterValue?.Invoke(  command.Parameters[parameter.Key].Value  );
+                }
+            }
+        }
+        
         protected void RunTransactionInternal(Action<DbConnection, DbTransaction> transactionAction)
         {
             _useTransaction = true;

@@ -1,3 +1,20 @@
+
+## *** Release note : version 1.21.06.01 ***
+###  What's new 
+
+- Manage output parameters on queries and store procedures.
+``` c#
+ {"@customerId", new QueryParameter<int>()  
+	{
+		IsOuputParameter = true,
+		GetOutputParameterValue = (val)=>{newCustomerId = (int) val; }
+	}
+ }
+```
+- Manage multiple resultsets   
+    - void ExecuteReaderOnMultipleResultsSet(string query, Action<DbDataReader, int> actionOnEachReaderAndRows, Dictionary<string, object> queryParameters = null, bool isStoreProcedure = false);    
+  
+
 ## *** Release note : version 1.21.05.11 ***
 ###  What's new 
 c# light and fluent wrapper for easily interacting with database 
