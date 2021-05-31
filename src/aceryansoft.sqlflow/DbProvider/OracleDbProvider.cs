@@ -21,9 +21,9 @@ namespace aceryansoft.sqlflow
             return new OracleConnection(connectionString);
         }
 
-        public DbParameter CreateDbParameter(string name, object value)
+        public DbParameter CreateDbParameter(string name, object value, bool isOutputParameter = false)
         {
-            return new OracleParameter() { ParameterName = name, Value = value };
+            return new OracleParameter() { ParameterName = name, Value = value, Direction = isOutputParameter ? ParameterDirection.Output : ParameterDirection.Input };
         }
     }
 }

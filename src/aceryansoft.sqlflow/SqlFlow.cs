@@ -85,7 +85,27 @@ namespace aceryansoft.sqlflow
                 }
             }, query, queryParameters, isStoreProcedure);
         }
-         
+
+        public void ExecuteReaderOnMultipleResultsSet(string query, Action<DbDataReader, int> actionOnEachReaderAndRows, Dictionary<string, object> queryParameters = null, bool isStoreProcedure = false)
+        {
+            ExecuteOnDbCommand(
+            (command) =>
+            {
+                using (var reader = command.ExecuteReader())
+                {
+                    int readerIndex = 0;
+                    do
+                    {
+                        while (reader.Read())
+                        {
+                            actionOnEachReaderAndRows(reader, readerIndex);
+                        }
+                        readerIndex++;
+                    } while(reader.NextResult());                    
+                }
+            }, query, queryParameters, isStoreProcedure);
+        }
+
         public List<T> ExecuteReaderAndMap<T>(string query, Dictionary<string, string> propertiesMapping=null, Dictionary<string, object> queryParameters = null, bool isStoreProcedure = false)
         {
             var result = new List<T>();

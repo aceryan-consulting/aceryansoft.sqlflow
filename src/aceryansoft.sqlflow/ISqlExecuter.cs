@@ -48,6 +48,17 @@ namespace aceryansoft.sqlflow
         /// <returns></returns>
         List<T> ExecuteReaderAndMap<T>(string query, Dictionary<string, string> propertiesMapping=null
             , Dictionary<string, object> queryParameters = null, bool isStoreProcedure = false);
+
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="query"></param>
+        /// <param name="actionOnEachRow"></param>
+        /// <param name="queryParameters"></param>
+        /// <param name="isStoreProcedure"></param>
+        void ExecuteReaderOnMultipleResultsSet(string query, Action<DbDataReader, int> actionOnEachReaderAndRows
+            , Dictionary<string, object> queryParameters = null, bool isStoreProcedure = false);
     }
      
     /// <summary>

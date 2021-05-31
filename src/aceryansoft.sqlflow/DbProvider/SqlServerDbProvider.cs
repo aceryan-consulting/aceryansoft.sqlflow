@@ -21,9 +21,9 @@ namespace aceryansoft.sqlflow
             return new SqlConnection(connectionString);
         }
 
-        public DbParameter CreateDbParameter(string name, object value)
+        public DbParameter CreateDbParameter(string name, object value, bool isOutputParameter = false)
         {
-            return new SqlParameter() { ParameterName = name, Value = value };
+            return new SqlParameter() { ParameterName = name, Value = value, Direction = isOutputParameter ? ParameterDirection.Output : ParameterDirection.Input };
         }
     }
 }

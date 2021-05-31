@@ -18,9 +18,9 @@ namespace aceryansoft.sqlflow
             return new MySqlConnection(connectionString);
         }
 
-        public DbParameter CreateDbParameter(string name, object value)
+        public DbParameter CreateDbParameter(string name, object value, bool isOutputParameter = false)
         {
-            return new MySqlParameter() { ParameterName = name, Value = value };
+            return new MySqlParameter() { ParameterName = name, Value = value, Direction = isOutputParameter ? ParameterDirection.Output : ParameterDirection.Input };
         }
     }
 }

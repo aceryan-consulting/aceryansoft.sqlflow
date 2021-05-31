@@ -19,8 +19,9 @@ namespace aceryansoft.sqlflow
         /// </summary>
         /// <param name="name"></param>
         /// <param name="value"></param>
+        /// <param name="isOutputParameter"></param>
         /// <returns></returns>
-        DbParameter CreateDbParameter(string name, object value);
+        DbParameter CreateDbParameter(string name, object value, bool isOutputParameter=false);
 
         /// <summary>
         /// Bulk insert multiple data records
