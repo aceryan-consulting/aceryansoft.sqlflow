@@ -3,13 +3,14 @@ using System;
 using System.Collections.Generic;
 using System.Data.Common;
 using System.Linq;
+using System.Text;
 
 namespace aceryansoft.sqlflow
 {
     /// <summary>
     /// base sql flow class
     /// </summary>
-    public class SqlFlow : BaseSqlFlow, ISqlFlow , ISqlExecuter, ISqlServerExecuter, ISqlTransactExecuter, IOracleExecuter
+    public class SqlFlow : BaseSqlFlow, ISqlFlow , ISqlExecuter, ISqlServerExecuter, ISqlTransactExecuter, IOracleExecuter , IBatchExecuter , IMySqlExecuter , IPostGreSqlExecuter , ISybaseExecuter
     { 
         private SqlFlow(string connectionString, Action<Exception, string, string> onError = null) : base(connectionString, onError)
         { 
@@ -31,19 +32,19 @@ namespace aceryansoft.sqlflow
             _dataBaseProvider = new OracleDbProvider();
             return this;
         }
-        public ISqlTransactExecuter WithSybaseExecuter()
+        public ISybaseExecuter WithSybaseExecuter()
         {
             _dataBaseProvider = new SybaseDbProvider();
             return this;
         }
 
-        public ISqlTransactExecuter WithPostGreSqlExecuter()
+        public IPostGreSqlExecuter WithPostGreSqlExecuter()
         {
             _dataBaseProvider = new PostGreSqlDbProvider();
             return this;
         }
         //
-        public ISqlTransactExecuter WithMySqlExecuter()
+        public IMySqlExecuter WithMySqlExecuter()
         {
             _dataBaseProvider = new MySqlDbProvider();
             return this;
@@ -139,10 +140,33 @@ namespace aceryansoft.sqlflow
         }
         #endregion
 
-        #region
+        #region transaction
         public void RunTransaction(Action<ISqlExecuter, DbConnection, DbTransaction> transactionAction)
         {
             RunTransactionInternal((db,tran)=> transactionAction(this,db, tran));
+        }
+        #endregion
+
+        #region BatchInsert for mysql and postgresql
+
+        public void BatchInsertRows<T>(string targetTable, List<T> data, Dictionary<string, string> allowedColumnsMapping = null, int batchSize = 100)
+        { 
+            if (allowedColumnsMapping == null)
+            {
+                allowedColumnsMapping = ReflectionHelper.GetDefaultColumnsMapping<T>(typeof(T).GetProperties().Select(elt => elt.Name).ToList()); // allow all properties
+            }
+             //todo manage inner objects later 
+            using (var connexion = _dataBaseProvider.CreateDbConnexion(_connectionString))
+            {
+                connexion.Open(); 
+                var objectValueProvider = QueryHelper.BuildObjectValueProvider<T>(allowedColumnsMapping);
+                foreach (var packet in ListExtensions.SplitByPacket(data, batchSize))
+                {
+                    var insertIntoQuery = QueryHelper.BuildInsertIntoQuery(packet, targetTable, allowedColumnsMapping,
+                        objectValueProvider); 
+                    ExecuteNonQuery(insertIntoQuery.query, insertIntoQuery.queryParameters); // no catch logic to ensure that all transaction can be rollback in case of package error
+                }
+            }
         }
 
         #endregion

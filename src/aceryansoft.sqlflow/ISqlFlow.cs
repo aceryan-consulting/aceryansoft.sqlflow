@@ -21,18 +21,18 @@
         /// 
         /// </summary>
         /// <returns></returns>
-        ISqlTransactExecuter WithSybaseExecuter();
+        ISybaseExecuter WithSybaseExecuter();
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        ISqlTransactExecuter WithPostGreSqlExecuter();
+        IPostGreSqlExecuter WithPostGreSqlExecuter();
 
         /// <summary>
         /// 
         /// </summary>
         /// <returns></returns>
-        ISqlTransactExecuter WithMySqlExecuter(); 
+        IMySqlExecuter WithMySqlExecuter(); 
     }
 }
