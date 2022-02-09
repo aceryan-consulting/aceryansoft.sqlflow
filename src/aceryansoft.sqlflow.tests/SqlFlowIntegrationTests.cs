@@ -320,5 +320,32 @@ select 'pierre' as name, 'poissy' as city, 78300 as postalcode
             Check.That(yan.Height).IsEqualTo(1.8);
         }
 
+        [TestMethod]
+        public void ShouldBatchInsertDataAndCheckExpectedValues()
+        {
+            var sqlserverExecuter = SqlFlow.Create(_localConnectionString).WithSqlServerExecuter();
+            var cust1 = new Customer() { CompanyName = "corp1_batch_test", Note = 12, TraderId = 11, Amount = 150.45M, CreationDate = DateTime.Now };
+            var cust2 = new Customer() { CompanyName = "corp2_batch_test", Note = 13, TraderId = 17, Amount = 120, CreationDate = DateTime.Now };
+            var cust3 = new Customer() { CompanyName = "corp3_batch_test", Note = 14, TraderId = 15, Amount = 170, CreationDate = DateTime.Now };
+            var customers = new List<Customer>() {cust1, cust2, cust3};
+            var columnMapping = new Dictionary<string, string>()
+            { 
+                {"CompanyName","name" },
+                {"Amount","amount" },
+                {"Note","notation" },
+                {"TraderId","traderid" },
+                {"CreationDate","creationdate" }
+            };
+            sqlserverExecuter.BatchInsertRows("Customers", customers, columnMapping);
+
+            var queryResults = sqlserverExecuter.ExecuteReaderAndMap<Customer>(
+                $"select id, name 'CompanyName',amount,notation 'note', traderid,creationdate from Customers where name like '%_batch_test%' ");
+            Check.That(queryResults.Count).IsEqualTo(3);
+
+            var customer1 = queryResults.FirstOrDefault(x => x.CompanyName == cust1.CompanyName);
+            Check.That(cust1.Amount).IsEqualTo(150.45M);
+            Check.That(cust1.TraderId).IsEqualTo(11);
+            Check.That(cust1.Note).IsEqualTo(12);
+        }
     }
 }

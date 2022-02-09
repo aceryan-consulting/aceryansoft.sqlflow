@@ -37,10 +37,10 @@
  
   <ItemGroup>
     <PackageReference Include="AdoNetCore.AseClient" Version="0.19.2" />
-    <PackageReference Include="MySql.Data" Version="8.0.24" />
-    <PackageReference Include="Npgsql" Version="5.0.4" />
-    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="2.19.110" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.2" />
+    <PackageReference Include="MySql.Data" Version="8.0.28" />
+    <PackageReference Include="Npgsql" Version="5.0.12" />
+    <PackageReference Include="Oracle.ManagedDataAccess.Core" Version="2.19.140" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.3" />
   </ItemGroup>
   
 </Project>

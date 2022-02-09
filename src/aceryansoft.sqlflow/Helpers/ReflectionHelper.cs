@@ -53,7 +53,7 @@ namespace aceryansoft.sqlflow.Helpers
             return tableResult;
         }
 
-        private static Dictionary<string, string> GetDefaultColumnsMapping<T>(List<string> columnsFilter)
+        public static Dictionary<string, string> GetDefaultColumnsMapping<T>(List<string> columnsFilter)
         {
             var lowerFilter = columnsFilter.Select(elt => elt.ToLower());
 
@@ -103,6 +103,6 @@ namespace aceryansoft.sqlflow.Helpers
                 innerObject = innerVal;
             }
         }
-
+        
     }
 }

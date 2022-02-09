@@ -77,7 +77,7 @@ namespace aceryansoft.sqlflow
     /// <summary>
     ///  bulk insert is only implemented on Oracle and Sql server
     /// </summary>
-    public interface ISqlServerExecuter : ISqlTransactExecuter
+    public interface ISqlServerExecuter : IBatchExecuter
     { 
         /// <summary>
         /// 
@@ -104,5 +104,42 @@ namespace aceryansoft.sqlflow
         /// <param name="allowedColumnsMapping"></param>
         /// <param name="batchSize"></param>
         void BulkInsert<T>(string targetTable, List<T> data, Dictionary<string, string> allowedColumnsMapping = null, int batchSize = 100);
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    public interface IBatchExecuter : ISqlTransactExecuter
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="targetTable"></param>
+        /// <param name="data"></param>
+        /// <param name="allowedColumnsMapping">Map and insert all Fields if null</param>
+        /// <param name="batchSize"></param>
+        void BatchInsertRows<T>(string targetTable, List<T> data, Dictionary<string, string> allowedColumnsMapping = null, int batchSize = 100);
+    }
+
+    /// <summary>
+    /// use bulk insert instead of batch insert, insert into syntax is only enable for integration tests with portable db
+    /// </summary>
+    public interface IMySqlExecuter : IBatchExecuter
+    {
+        
+    }
+
+    /// <summary>
+    /// use insert into syntax to insert multiple data rows
+    /// </summary>
+    public interface IPostGreSqlExecuter : IBatchExecuter
+    {
+
+    }
+
+    public interface ISybaseExecuter : ISqlTransactExecuter
+    {
+
     }
 }
