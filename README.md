@@ -20,6 +20,8 @@ Please read [Release note](https://github.com/aceryan-consulting/aceryansoft.sql
 
 ## Features
 
+Please read [Documentation](https://github.com/aceryan-consulting/aceryansoft.sqlflow/blob/develop/README.md) .
+
 #### ExecuteReaderAndMap 
 
 Hello sql world

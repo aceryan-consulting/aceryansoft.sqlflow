@@ -127,7 +127,15 @@ namespace aceryansoft.sqlflow
     /// </summary>
     public interface IMySqlExecuter : IBatchExecuter
     {
-        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="targetTable"></param>
+        /// <param name="data"></param>
+        /// <param name="allowedColumnsMapping"></param>
+        /// <param name="batchSize"></param>
+        void BulkInsert<T>(string targetTable, List<T> data, Dictionary<string, string> allowedColumnsMapping = null, int batchSize = 100);
     }
 
     /// <summary>

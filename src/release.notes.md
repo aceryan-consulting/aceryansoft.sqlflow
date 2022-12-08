@@ -1,4 +1,19 @@
 
+## *** Release note : version 1.22.12.07 ***
+###  What's new 
+
+- Add nuget package for netstandard2.1 
+- implement bulkinsert method on mysql db provider using bulk load with temp file. 
+- Update nuget packages (security and bug fix)
+     - System.Data.SqlClient.4.8.3 -> System.Data.SqlClient.4.8.5
+     - netstandard2.0
+         - Oracle.ManagedDataAccess.Core.2.19.140 -> Oracle.ManagedDataAccess.Core.2.19.170
+     - netstandard2.1 
+         - Oracle.ManagedDataAccess.Core.2.19.140 -> Oracle.ManagedDataAccess.Core.3.21.80
+     - Npgsql.6.0.3 -> Npgsql.7.0.0
+     - MySql.Data.8.0.28 -> MySql.Data.8.0.31
+
+     
 ## *** Release note : version 1.22.02.09 ***
 ###  What's new 
 
