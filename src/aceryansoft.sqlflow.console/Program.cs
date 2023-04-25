@@ -163,8 +163,8 @@ namespace aceryansoft.sqlflow.console
                   PhoneNumber = "06"
               } },
             };
-
-            oracleExecuter.BulkInsert<Person>("Persons", peoples, batchSize: 500);
+            var propertyMapping = new Dictionary<string, string>() {{ "Name","user_name" } , { "Age", "age" }  };
+            oracleExecuter.BulkInsert<Person>("Persons", peoples, propertyMapping, batchSize: 500);
         }
     }
 
