@@ -20,36 +20,41 @@ namespace aceryansoft.sqlflow.Helpers
         /// <param name="data"></param>
         /// <param name="allowedColumnsMapping"></param>
         /// <returns></returns>
-        public static DataTable ConvertListToDataTable<T>(List<T> data, Dictionary<string, string> allowedColumnsMapping)
+        public static DataTable ConvertListToDataTable<T>(List<T> data, Dictionary<string, string> allowedColumnsMapping, bool preserveMappingOrder = false)
         {
+            if (preserveMappingOrder && allowedColumnsMapping == null)
+            {
+                throw new ArgumentException("can't preserve mapping order when allowedColumnsMapping is null. Bulk insert require "); 
+            }
+
             if (allowedColumnsMapping == null)
             {
-                allowedColumnsMapping = GetDefaultColumnsMapping<T>(typeof(T).GetProperties().Select(elt => elt.Name).ToList()); // allow all properties
+                allowedColumnsMapping = GetDefaultColumnsMapping<T>(typeof(T).GetProperties().Select(elt => elt.Name).ToList()); // allow all properties with default order
             }
 
-            var tableResult = new DataTable();
-            var allowedProperties = new List<PropertyDescriptor>();
-            foreach (PropertyDescriptor prop in TypeDescriptor.GetProperties(typeof(T)))
+            var tableResult = new DataTable(); 
+
+            var mappedProperties = TypeDescriptor.GetProperties(typeof(T)).OfType<PropertyDescriptor>().Where(p=> allowedColumnsMapping.Keys.Contains(p.Name)).ToList();
+            var orderedProperties = new List<PropertyDescriptor>();
+            foreach (var allowedColumn in allowedColumnsMapping)
             {
-                if (!allowedColumnsMapping.ContainsKey(prop.Name))
+                var mappedProp = mappedProperties.FirstOrDefault(x => x.Name == allowedColumn.Key);
+                if (mappedProp == null)
                 {
-                    continue; // only add allowed columns
+                    continue;
                 }
-                var mappedColumn = allowedColumnsMapping[prop.Name];
-                tableResult.Columns.Add(mappedColumn, Nullable.GetUnderlyingType(prop.PropertyType) ?? prop.PropertyType);
-                allowedProperties.Add(prop);
+                tableResult.Columns.Add(allowedColumn.Value, Nullable.GetUnderlyingType(mappedProp.PropertyType) ?? mappedProp.PropertyType);
+                orderedProperties.Add(mappedProp);
             }
-
             foreach (T item in data)
             {
                 DataRow row = tableResult.NewRow();
-                foreach (PropertyDescriptor prop in allowedProperties)
-                {
-                    var mappedColumn = allowedColumnsMapping[prop.Name];
-                    row[mappedColumn] = prop.GetValue(item) ?? DBNull.Value;
+                foreach (var prop in orderedProperties)
+                { 
+                   row[allowedColumnsMapping[prop.Name]] = prop.GetValue(item) ?? DBNull.Value;
                 }
                 tableResult.Rows.Add(row);
-            }
+            } 
             return tableResult;
         }
 

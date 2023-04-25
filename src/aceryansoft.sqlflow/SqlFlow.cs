@@ -50,12 +50,12 @@ namespace aceryansoft.sqlflow
             return this;
         }
 
-        public void BulkInsert<T>(string targetTable, List<T> data, Dictionary<string, string> allowedColumnsMapping = null, int batchSize = 100)
+        public void BulkInsert<T>(string targetTable, List<T> data, Dictionary<string, string> allowedColumnsMapping, int batchSize = 100)
         {
             using (var connexion = _dataBaseProvider.CreateDbConnexion(_connectionString))
             {
                 connexion.Open();
-                var dt = ReflectionHelper.ConvertListToDataTable<T>(data, allowedColumnsMapping);
+                var dt = ReflectionHelper.ConvertListToDataTable<T>(data, allowedColumnsMapping,true);
                 _dataBaseProvider.BulkInsert(connexion, targetTable, dt , batchSize);
             }  
         }
@@ -155,14 +155,16 @@ namespace aceryansoft.sqlflow
             {
                 allowedColumnsMapping = ReflectionHelper.GetDefaultColumnsMapping<T>(typeof(T).GetProperties().Select(elt => elt.Name).ToList()); // allow all properties
             }
+
+            var sortedColumnsMapping = new SortedDictionary<string, string>(allowedColumnsMapping);
              //todo manage inner objects later 
             using (var connexion = _dataBaseProvider.CreateDbConnexion(_connectionString))
             {
                 connexion.Open(); 
-                var objectValueProvider = QueryHelper.BuildObjectValueProvider<T>(allowedColumnsMapping);
+                var objectValueProvider = QueryHelper.BuildObjectValueProvider<T>(sortedColumnsMapping);
                 foreach (var packet in ListExtensions.SplitByPacket(data, batchSize))
                 {
-                    var insertIntoQuery = QueryHelper.BuildInsertIntoQuery(packet, targetTable, allowedColumnsMapping,
+                    var insertIntoQuery = QueryHelper.BuildInsertIntoQuery(packet, targetTable, sortedColumnsMapping,
                         objectValueProvider); 
                     ExecuteNonQuery(insertIntoQuery.query, insertIntoQuery.queryParameters); // no catch logic to ensure that all transaction can be rollback in case of package error
                 }

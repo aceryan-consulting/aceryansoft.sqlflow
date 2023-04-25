@@ -46,10 +46,11 @@ namespace aceryansoft.sqlflow.tests
                 {"CompanyName", "company_name"},
                 {"TraderId", "trader_id"},
             };
-            var objValueResolver = QueryHelper.BuildObjectValueProvider<Customer>(columnsMapping);
-            var insertIntoQuery = QueryHelper.BuildInsertIntoQuery(customers, "customers", columnsMapping, objValueResolver);
+            var sortedColumnMapping = new SortedDictionary<string, string>(columnsMapping);
+            var objValueResolver = QueryHelper.BuildObjectValueProvider<Customer>(sortedColumnMapping);
+            var insertIntoQuery = QueryHelper.BuildInsertIntoQuery(customers, "customers", sortedColumnMapping, objValueResolver);
 
-            Check.That(insertIntoQuery.query).IsEqualTo("insert into customers ( id , amount , company_name , trader_id ) values  ( @id0 , @amount0 , @company_name0 , @trader_id0 )  ,  ( @id1 , @amount1 , @company_name1 , @trader_id1 )  ; ");
+            Check.That(insertIntoQuery.query).IsEqualTo("insert into customers ( amount , company_name , id , trader_id ) values  ( @amount0 , @company_name0 , @id0 , @trader_id0 )  ,  ( @amount1 , @company_name1 , @id1 , @trader_id1 )  ; ");
 
             var expectedParameters = columnsMapping.Count * customers.Count;
             Check.That(insertIntoQuery.queryParameters.Count).IsEqualTo(expectedParameters);
@@ -64,10 +65,11 @@ namespace aceryansoft.sqlflow.tests
         {
             var customers = GetCustomers();
             var columnsMapping = typeof(Customer).GetProperties().ToDictionary(x=>x.Name, x=>x.Name.ToLower());
-            var objValueResolver = QueryHelper.BuildObjectValueProvider<Customer>(columnsMapping);
-            var insertIntoQuery = QueryHelper.BuildInsertIntoQuery(customers, "customers", columnsMapping, objValueResolver);
+            var sortedColumnMapping = new SortedDictionary<string, string>(columnsMapping);
+            var objValueResolver = QueryHelper.BuildObjectValueProvider<Customer>(sortedColumnMapping);
+            var insertIntoQuery = QueryHelper.BuildInsertIntoQuery(customers, "customers", sortedColumnMapping, objValueResolver);
             // test can fail if class Customer is modified, update if required 
-            Check.That(insertIntoQuery.query).IsEqualTo("insert into customers ( id , companyname , amount , traderid , note , creationdate ) values  ( @id0 , @companyname0 , @amount0 , @traderid0 , @note0 , @creationdate0 )  ,  ( @id1 , @companyname1 , @amount1 , @traderid1 , @note1 , @creationdate1 )  ; ");
+            Check.That(insertIntoQuery.query).IsEqualTo("insert into customers ( amount , companyname , creationdate , id , note , traderid ) values  ( @amount0 , @companyname0 , @creationdate0 , @id0 , @note0 , @traderid0 )  ,  ( @amount1 , @companyname1 , @creationdate1 , @id1 , @note1 , @traderid1 )  ; ");
 
             var expectedParameters = columnsMapping.Count * customers.Count;
             Check.That(insertIntoQuery.queryParameters.Count).IsEqualTo(expectedParameters);

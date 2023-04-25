@@ -85,9 +85,9 @@ namespace aceryansoft.sqlflow
         /// <typeparam name="T"></typeparam>
         /// <param name="targetTable"></param>
         /// <param name="data"></param>
-        /// <param name="allowedColumnsMapping"></param>
+        /// <param name="allowedColumnsMapping">require the same column order defined in database table, ignore table columns with default values</param>
         /// <param name="batchSize"></param>
-        void BulkInsert<T>(string targetTable, List<T> data, Dictionary<string, string> allowedColumnsMapping = null, int batchSize = 100);
+        void BulkInsert<T>(string targetTable, List<T> data, Dictionary<string, string> allowedColumnsMapping, int batchSize = 100);
     }
 
     /// <summary>
@@ -101,9 +101,9 @@ namespace aceryansoft.sqlflow
         /// <typeparam name="T"></typeparam>
         /// <param name="targetTable"></param>
         /// <param name="data"></param>
-        /// <param name="allowedColumnsMapping"></param>
+        /// <param name="allowedColumnsMapping">require the same column order defined in database table, ignore table columns with default values</param>
         /// <param name="batchSize"></param>
-        void BulkInsert<T>(string targetTable, List<T> data, Dictionary<string, string> allowedColumnsMapping = null, int batchSize = 100);
+        void BulkInsert<T>(string targetTable, List<T> data, Dictionary<string, string> allowedColumnsMapping, int batchSize = 100);
     }
 
     /// <summary>
@@ -133,9 +133,9 @@ namespace aceryansoft.sqlflow
         /// <typeparam name="T"></typeparam>
         /// <param name="targetTable"></param>
         /// <param name="data"></param>
-        /// <param name="allowedColumnsMapping"></param>
+        /// <param name="allowedColumnsMapping">require the same column order defined in database table, ignore table columns with default values</param>
         /// <param name="batchSize"></param>
-        void BulkInsert<T>(string targetTable, List<T> data, Dictionary<string, string> allowedColumnsMapping = null, int batchSize = 100);
+        void BulkInsert<T>(string targetTable, List<T> data, Dictionary<string, string> allowedColumnsMapping, int batchSize = 100);
     }
 
     /// <summary>

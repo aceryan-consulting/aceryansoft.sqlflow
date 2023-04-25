@@ -175,7 +175,7 @@ select 'pierre' as name, 'poissy' as city, 78300 as postalcode
 
             var columnMapping = new Dictionary<string, string>()
             {
-                {"Id","id" }, // will be ignore by the bulk insert
+                {"Id","id" }, // will be ignore by the bulk insert if identity column 
                 {"CompanyName","name" },
                 {"Amount","amount" },
                 {"Note","notation" },
@@ -189,9 +189,12 @@ select 'pierre' as name, 'poissy' as city, 78300 as postalcode
             Check.That(queryResults.Count).IsEqualTo(3);
 
             var customer1 = queryResults.FirstOrDefault(x => x.CompanyName == cust1.CompanyName); 
-            Check.That(cust1.Amount).IsEqualTo(150.45M);
-            Check.That(cust1.TraderId).IsEqualTo(11);
-            Check.That(cust1.Note).IsEqualTo(12);
+            Check.That(cust1.Amount).IsEqualTo(customer1.Amount);
+            Check.That(cust1.TraderId).IsEqualTo(customer1.TraderId);
+            Check.That(cust1.Note).IsEqualTo(cust1.Note);
+
+            var customer3 = queryResults.FirstOrDefault(x => x.CompanyName == cust3.CompanyName);
+            Check.That(cust3.Note).IsEqualTo(customer3.Note);
         }
 
         private decimal InsertCustomerData(ISqlExecuter sqlExecuter ,string companyName,decimal amount, int traderId,float notation, DateTime creationDate)
@@ -343,9 +346,10 @@ select 'pierre' as name, 'poissy' as city, 78300 as postalcode
             Check.That(queryResults.Count).IsEqualTo(3);
 
             var customer1 = queryResults.FirstOrDefault(x => x.CompanyName == cust1.CompanyName);
-            Check.That(cust1.Amount).IsEqualTo(150.45M);
-            Check.That(cust1.TraderId).IsEqualTo(11);
-            Check.That(cust1.Note).IsEqualTo(12);
+            Check.That(customer1).IsNotNull();
+            Check.That(cust1.Amount).IsEqualTo(customer1.Amount);
+            Check.That(cust1.TraderId).IsEqualTo(customer1.TraderId);
+            Check.That(cust1.Note).IsEqualTo(customer1.Note);
         }
     }
 }

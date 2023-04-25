@@ -1,3 +1,46 @@
+## *** Release note : version 1.23.04.25 ***
+###  What's new 
+
+- Add nuget package for netstandard2.1 
+- Force query generation to use field names order in BatchInsertRows. 
+``` c#
+// ./src/aceryansoft.sqlflow/ISqlExecuter.cs 
+// change Required to validate unit test on QueryHelper.BuildInsertIntoQuery<T>
+    public interface IBatchExecuter : ISqlTransactExecuter
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="targetTable"></param>
+        /// <param name="data"></param>
+        /// <param name="allowedColumnsMapping">Map and insert all Fields if null</param>
+        /// <param name="batchSize"></param>
+        void BatchInsertRows<T>(string targetTable, List<T> data, Dictionary<string, string> allowedColumnsMapping = null, int batchSize = 100);
+    }
+   
+```
+- bugfix on bulkinsert method caused by non deterministic Dictionary enumeration. 
+``` c#
+// ./src/aceryansoft.sqlflow/ISqlExecuter.cs 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="targetTable"></param>
+    /// <param name="data"></param>
+    /// <param name="allowedColumnsMapping">require the same column order defined in database table, ignore table columns with default values</param>
+    /// <param name="batchSize"></param>
+    void BulkInsert<T>(string targetTable, List<T> data, Dictionary<string, string> allowedColumnsMapping, int batchSize = 100);
+   
+```
+- Update nuget packages (security and bug fix) 
+     - netstandard2.0
+         - Oracle.ManagedDataAccess.Core.2.19.170 -> Oracle.ManagedDataAccess.Core.2.19.190 (no more support on netstandard2.0 )
+     - netstandard2.1 
+         - Oracle.ManagedDataAccess.Core.3.21.80 -> Oracle.ManagedDataAccess.Core.3.21.100
+     - Npgsql.7.0.0 -> Npgsql.7.0.4
+     - MySql.Data.8.0.31 -> MySql.Data.8.0.33
 
 ## *** Release note : version 1.22.12.07 ***
 ###  What's new 
