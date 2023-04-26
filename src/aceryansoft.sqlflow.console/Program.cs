@@ -166,6 +166,30 @@ namespace aceryansoft.sqlflow.console
             var propertyMapping = new Dictionary<string, string>() {{ "Name","user_name" } , { "Age", "age" }  };
             oracleExecuter.BulkInsert<Person>("Persons", peoples, propertyMapping, batchSize: 500);
         }
+
+        static void Main8(string[] args)
+        {
+            var postGreSqlExecuter = SqlFlow.Create("connection String").WithPostGreSqlExecuter(); // .WithSqlServerExecuter() .WithMySqlExecuter()
+
+            var peoples = new List<Person>()
+            {
+                new Person(){Name="yan", Age=21},
+                new Person(){Name="pierre", Age=51},
+                new Person(){Name="philippe", Age=43},
+                new Person(){Name="marc", Age=27},
+                new Person(){Name="edouard", Age=62, Contacts = new Contact()
+                {
+                    Home = new Address()
+                    {
+                        City="dakar",
+                        PostalCode=27
+                    },
+                    PhoneNumber = "06"
+                } },
+            };
+            var propertyMapping = new Dictionary<string, string>() { { "Name", "user_name" }, { "Age", "age" } };
+            postGreSqlExecuter.BatchInsertRows("Persons", peoples, propertyMapping, batchSize: 500);
+        }
     }
 
     public class Person

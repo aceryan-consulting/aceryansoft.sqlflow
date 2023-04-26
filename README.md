@@ -205,10 +205,10 @@ oracleExecuter.RunTransaction((sqlexecuter, dbConnexion, dbTransaction) =>
 
 #### Bulk insert 
 
-only available on Oracle and Sql server  
+Classic sql bulkinsert, available on Oracle, Mysql and Sql server  
 
 ``` c#
-var oracleExecuter = SqlFlow.Create("connection String").WithOracleExecuter(); // .WithSqlServerExecuter()
+var oracleExecuter = SqlFlow.Create("connection String").WithOracleExecuter(); // .WithSqlServerExecuter()  .WithMySqlExecuter()
 
 var peoples = new List<Person>()
 {
@@ -228,6 +228,32 @@ var peoples = new List<Person>()
 };
 var propertyMapping = new Dictionary<string, string>() {{ "Name","user_name" } , { "Age", "age" }  };
 oracleExecuter.BulkInsert<Person>("Persons", peoples, propertyMapping, batchSize: 500);
+```
+
+#### Batch insert 
+Insert multiple rows by generating insert into query,use the batchSize parameter to ensure that the query size is under the maximum lenght of a sqlcommand. This command is available on PostgreSql, Mysql and Sql server.   
+
+``` c#
+   var postGreSqlExecuter = SqlFlow.Create("connection String").WithPostGreSqlExecuter(); // .WithSqlServerExecuter() .WithMySqlExecuter()
+
+            var peoples = new List<Person>()
+            {
+                new Person(){Name="yan", Age=21},
+                new Person(){Name="pierre", Age=51},
+                new Person(){Name="philippe", Age=43},
+                new Person(){Name="marc", Age=27},
+                new Person(){Name="edouard", Age=62, Contacts = new Contact()
+                {
+                    Home = new Address()
+                    {
+                        City="dakar",
+                        PostalCode=27
+                    },
+                    PhoneNumber = "06"
+                } },
+            };
+            var propertyMapping = new Dictionary<string, string>() { { "Name", "user_name" }, { "Age", "age" } };
+            postGreSqlExecuter.BatchInsertRows("Persons", peoples, propertyMapping, batchSize: 500);
 ```
 
 #### Output parameter 
