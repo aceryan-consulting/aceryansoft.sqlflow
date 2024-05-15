@@ -1,3 +1,16 @@
+## *** Release note : version 1.24.05.15 ***
+###  What's new 
+
+- Update nuget packages (security and bug fix) 
+     - netstandard2.0
+         - Oracle.ManagedDataAccess.Core.2.19.190 -> Oracle.ManagedDataAccess.Core.2.19.230 
+     - netstandard2.1 
+         - Oracle.ManagedDataAccess.Core.3.21.100 -> Oracle.ManagedDataAccess.Core.3.21.140
+     - Npgsql.7.0.4 -> Npgsql.8.0.3  (vulnerability https://github.com/advisories/GHSA-x9vc-6hfv-hg8c)
+     - MySql.Data.8.0.33 -> MySql.Data.8.4.0
+     - System.Data.SqlClient.4.8.5 -> MySql.Data.4.8.6 (vulnerability  https://github.com/advisories/GHSA-98g6-xh36-x2p7)
+
+
 ## *** Release note : version 1.23.04.25 ***
 ###  What's new 
 
