@@ -142,7 +142,9 @@ namespace aceryansoft.sqlflow
             ResetTransaction();
         }
 
-        private void RollbackAndLogTransactionException(Exception ex)
+    
+
+        protected void RollbackAndLogTransactionException(Exception ex)
         {
             _currentTransaction.Rollback();
             ResetTransaction();

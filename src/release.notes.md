@@ -1,3 +1,31 @@
+## *** Release note : version 1.25.11.21 ***
+###  What's new 
+- add dotnet 8 nuget package 
+- Update nuget packages (security and bug fix) 
+    - net8.0
+       - Oracle.ManagedDataAccess.Core.3.21.140 -> Oracle.ManagedDataAccess.Core.23.26.0
+       - Npgsql.8.0.3 -> Npgsql.9.0.4
+    - netstandard2.0
+       - Oracle.ManagedDataAccess.Core.2.19.230 -> Oracle.ManagedDataAccess.Core.2.19.290 
+       - Npgsql.8.0.3 -> Npgsql.8.0.8
+    - netstandard2.1 
+       - Oracle.ManagedDataAccess.Core.3.21.140 -> Oracle.ManagedDataAccess.Core.23.26.0
+       - Npgsql.8.0.3 -> Npgsql.8.0.8  
+    - MySql.Data.8.4.0 -> MySql.Data.9.5.0
+- update interface ISqlTransactExecuter with a more simple method of handling transaction 
+``` c#
+// ./src/aceryansoft.sqlflow/ISqlTransactExecuter.cs  
+    public interface ISqlTransactExecuter : ISqlExecuter
+   { 
+       /// <summary>
+       /// Run multiple db actions on a shared connection, this should be more usefull for complex transaction scenario
+       /// </summary>
+       /// <param name="sharedConnectionAction"> the callback to create and manage multiple action on shared connection</param>
+       void RunOnSharedConnection(Action<ISqlExecuter, DbConnection> sharedConnectionAction);
+   }
+   
+```
+
 ## *** Release note : version 1.24.05.15 ***
 ###  What's new 
 

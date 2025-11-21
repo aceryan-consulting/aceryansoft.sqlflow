@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29806.167
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36301.6 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "aceryansoft.sqlflow", "aceryansoft.sqlflow\aceryansoft.sqlflow.csproj", "{4B4D6A83-4EAB-41FE-9A9E-EDFEAD8097AF}"
 EndProject

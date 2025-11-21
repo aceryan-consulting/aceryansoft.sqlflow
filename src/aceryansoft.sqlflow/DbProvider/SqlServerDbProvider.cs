@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using System.Data.Common;
 using System.Data.SqlClient;
+//todo yannick migrate from System.Data.SqlClient to Microsoft.Data.SqlClient=> require Trust Server Certificate=True, or Encrypt =false to work
 
 namespace aceryansoft.sqlflow
 {

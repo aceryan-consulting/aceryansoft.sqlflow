@@ -145,6 +145,25 @@ namespace aceryansoft.sqlflow
         {
             RunTransactionInternal((db,tran)=> transactionAction(this,db, tran));
         }
+
+        public void RunOnSharedConnection(Action<ISqlExecuter, DbConnection> sharedConnectionAction)
+        {
+            _useTransaction = true;
+            using (var _currentDbConnexion = _dataBaseProvider.CreateDbConnexion(_connectionString))
+            {
+                _currentDbConnexion.Open();
+                try
+                {
+                    sharedConnectionAction(this,_currentDbConnexion);
+                }
+                catch (Exception ex)
+                {
+                    _onError?.Invoke(ex, _lastQuery, _lastParameters); 
+                } 
+            }
+            ResetTransaction();
+        }
+
         #endregion
 
         #region BatchInsert for mysql and postgresql
