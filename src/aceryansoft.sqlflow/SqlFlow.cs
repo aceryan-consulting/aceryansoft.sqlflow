@@ -147,8 +147,7 @@ namespace aceryansoft.sqlflow
         }
 
         public void RunOnSharedConnection(Action<ISqlExecuter, DbConnection> sharedConnectionAction)
-        {
-            _useTransaction = true;
+        { 
             using (var _currentDbConnexion = _dataBaseProvider.CreateDbConnexion(_connectionString))
             {
                 _currentDbConnexion.Open();
@@ -160,6 +159,27 @@ namespace aceryansoft.sqlflow
                 {
                     _onError?.Invoke(ex, _lastQuery, _lastParameters); 
                 } 
+            }
+            _currentDbConnexion = null;
+        }
+         
+        public void RunOnSharedTransaction(Action<ISqlExecuter, DbTransaction, DbConnection> sharedTransactionAction, System.Data.IsolationLevel isolationLevel)
+        {
+            _useTransaction = true;
+            using (var _currentDbConnexion = _dataBaseProvider.CreateDbConnexion(_connectionString))
+            {
+                _currentDbConnexion.Open();
+                using (var _currentTransaction = _currentDbConnexion.BeginTransaction(isolationLevel))
+                {
+                    try
+                    {
+                        sharedTransactionAction(this, _currentTransaction, _currentDbConnexion);
+                    }
+                    catch (Exception ex)
+                    {
+                        _onError?.Invoke(ex, _lastQuery, _lastParameters);
+                    }
+                }               
             }
             ResetTransaction();
         }

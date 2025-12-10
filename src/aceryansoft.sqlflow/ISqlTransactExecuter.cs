@@ -13,12 +13,13 @@ namespace aceryansoft.sqlflow
         /// </summary>
         /// <param name="transactionAction"></param>
         void RunTransaction(Action<ISqlExecuter, DbConnection, DbTransaction> transactionAction);
-
+       
 
         /// <summary>
-        /// Run multiple db actions on the shared connection, this should be more usefull for complex transaction scenario
+        /// Run on a shared connection and transaction, the caller is in charge of transaction commit or rollback
         /// </summary>
-        /// <param name="sharedConnectionAction"> the callback to create and manage multiple action on shared connection</param>
-        void RunOnSharedConnection(Action<ISqlExecuter, DbConnection> sharedConnectionAction);
+        /// <param name="sharedTransactionAction"></param>
+        /// <param name="isolationLevel"></param>
+        void RunOnSharedTransaction(Action<ISqlExecuter, DbTransaction, DbConnection> sharedTransactionAction, System.Data.IsolationLevel isolationLevel);
     }
 }

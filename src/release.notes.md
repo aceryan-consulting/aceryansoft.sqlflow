@@ -1,3 +1,20 @@
+## *** Release note : version 1.25.12.10 ***
+###  What's new 
+- update interface ISqlTransactExecuter with a flexible way of handling transaction 
+``` c#
+// ./src/aceryansoft.sqlflow/ISqlTransactExecuter.cs  
+    public interface ISqlTransactExecuter : ISqlExecuter
+   { 
+        /// <summary>
+        /// Run on a shared connection and transaction, the caller is in charge of transaction commit or rollback
+        /// </summary>
+        /// <param name="sharedTransactionAction"></param>
+        /// <param name="isolationLevel"></param>
+        void RunOnSharedTransaction(Action<ISqlExecuter, DbTransaction, DbConnection> sharedTransactionAction, System.Data.IsolationLevel isolationLevel);
+   }   
+```
+- move method RunOnSharedConnection from interface ISqlTransactExecuter to ISqlExecuter.
+ 
 ## *** Release note : version 1.25.11.21 ***
 ###  What's new 
 - add dotnet 8 nuget package 

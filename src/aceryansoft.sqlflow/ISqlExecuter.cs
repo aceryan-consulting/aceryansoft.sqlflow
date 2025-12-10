@@ -59,5 +59,11 @@ namespace aceryansoft.sqlflow
         /// <param name="isStoreProcedure"></param>
         void ExecuteReaderOnMultipleResultsSet(string query, Action<DbDataReader, int> actionOnEachReaderAndRows
             , Dictionary<string, object> queryParameters = null, bool isStoreProcedure = false);
+
+        /// <summary>
+        /// Run multiple db actions on the shared connection, this should be more usefull for complex transaction scenario
+        /// </summary>
+        /// <param name="sharedConnectionAction"> the callback to create and manage multiple action on shared connection</param>
+        void RunOnSharedConnection(Action<ISqlExecuter, DbConnection> sharedConnectionAction);
     }
 }
